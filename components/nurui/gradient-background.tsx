@@ -13,7 +13,7 @@ export const GradientBackground = ({
   fourthColor = "178, 34, 34", // firebrick
   fifthColor = "139, 0, 0", // dark red
   pointerColor = "255, 165, 0", // orange for pointer
-  size = "50%",
+  size = "30%",
   blendingValue = "hard-light", // changed for better glow effect
   children,
   className,
@@ -149,7 +149,7 @@ export const GradientBackground = ({
           duration: 3.5,
           ease: easeInOut,
         }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center h-16">
@@ -202,8 +202,8 @@ export const GradientBackground = ({
       <div className={cn(className)}>{children}</div>
       <div
         className={cn(
-          "gradients-container h-full w-full blur-lg",
-          isSafari ? "blur-2xl" : "[filter:url(#blurMe)_blur(40px)]"
+          "gradients-container h-full w-full ",
+          isSafari ? "blur-4xl" : "[filter:url(#blurMe)_blur(40px)]"
         )}
       >
         <div

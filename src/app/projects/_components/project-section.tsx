@@ -1,44 +1,62 @@
 "use client";
 
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { useState } from "react";
 
 const projects = [
   {
     id: 1,
-    title: "Immersive Brand Identity",
-    subtitle: "Visual strategy & design system for a global tech brand",
-    category: "Brand Design",
-    year: "2024",
-    image: "/tech-brand-geometric.png",
+    title: "Sportify",
+    subtitle:
+      "A sport and court lending platform featuring location-based filtering, one-time purchases, and in-app chat functionality.",
+    category: "Web Development",
+    year: "2026",
+    image: "/sportify.jpg",
     span: "col-span-2",
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    subtitle: "Full-stack marketplace with advanced filtering",
+    title: "GameStore",
+    subtitle:
+      "E-commerce platform for digital game sales with user reviews and recommendations",
     category: "Web Development",
-    year: "2024",
-    image: "/sleek-ecommerce-dark.png",
+    year: "2023",
+    image: "/gamestore.png",
     span: "col-span-1",
+    link: "https://planet69.neocities.org/",
   },
   {
     id: 3,
-    title: "Mobile Banking App",
-    subtitle: "Secure financial interface with biometric authentication",
-    category: "UI/UX Design",
-    year: "2023",
-    image: "/modern-mobile-banking-app.png",
+    title: "TodoMatrix",
+    subtitle:
+      "Task management app with a matrix-style interface for prioritizing and organizing tasks",
+    category: "Web Development",
+    year: "2024",
+    image: "/todomatrix.png",
     span: "col-span-1",
+    link: "https://todo-list-ashy-chi.vercel.app/",
   },
   {
     id: 4,
-    title: "AI Dashboard Analytics",
-    subtitle: "Real-time data visualization for machine learning insights",
-    category: "Data Visualization",
-    year: "2024",
-    image: "/futuristic-ai-dashboard.png",
+    title: "Resumerzz",
+    subtitle:
+      "A powerful web application that provides AI-powered resume analysis and feedback. Get detailed insights on how to optimize your resume for better ATS (Applicant Tracking System) performance and human readability.",
+    category: "Web + AI Development",
+    year: "2025",
+    image: "/AiResumer.png",
     span: "col-span-2",
+    link: "https://ai-analyzer-one.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Coming Soon",
+    subtitle:
+      "Stay tuned for an exciting new project that will be revealed soon!",
+    category: "Stay Tuned",
+    year: "Yet to Reveal",
+    image: "/comingsoon.avif",
+    span: "col-span-3",
   },
 ];
 
@@ -47,91 +65,112 @@ export default function PortfolioGrid() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      
-      <section className="pt-22 pb-20 px-6">
+      {/* Update header section padding and text sizes */}
+      <section className="pt-16 md:pt-22 pb-12 md:pb-20 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 tracking-tight">
             SELECTED
             <br />
             <span className="text-gray-400">WORKS</span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
             Design is more than visuals — it's the story your brand tells.
             Explore my selected works.
           </p>
         </div>
       </section>
 
-     
-      <section className="px-6 pb-20">
+      {/* Update grid section padding and layout */}
+      <section className="px-4 md:px-6 pb-12 md:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
             {projects.map((project, index) => (
-              <Card
+              <Link
                 key={project.id}
-                className={`${project.span} relative overflow-hidden bg-gray-900 border-gray-800 cursor-pointer group transition-all duration-500 ease-out hover:scale-[1.03] hover:shadow-2xl hover:shadow-cyan-400/20`}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
+                href={project.link || "#"}
+                target={project.link ? "_blank" : "_self"}
+                className={`block ${
+                  project.span === "col-span-2"
+                    ? "md:col-span-2"
+                    : "md:col-span-1"
+                } ${project.span === "col-span-3" ? "md:col-span-3" : ""}`}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/70"></div>
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-cyan-400/10 via-transparent to-transparent"></div>
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                  {/* Category Badge */}
-                  <div className="mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <span className="inline-block px-3 py-1 text-xs font-medium bg-cyan-400/20 text-cyan-400 rounded-full border border-cyan-400/30">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <h3 className="text-2xl font-bold mb-2 text-white">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 mb-3 leading-relaxed">
-                      {project.subtitle}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-400">
-                        {project.year}
+                <Card
+                  className={`relative overflow-hidden bg-gray-900 border-gray-800 cursor-pointer group 
+                    transition-all duration-500 ease-out hover:scale-[1.03] hover:shadow-2xl hover:shadow-cyan-400/20
+                    min-h-[300px] sm:min-h-[400px]`}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                >
+                  {/* Update content padding and text sizes */}
+                  <div className="relative z-10 p-4 sm:p-6 md:p-8 h-full flex flex-col justify-end">
+                    {/* Category Badge */}
+                    <div className="mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
+                      <span className="inline-block px-2 md:px-3 py-1 text-xs font-medium bg-cyan-400/20 text-cyan-400 rounded-full border border-cyan-400/30">
+                        {project.category}
                       </span>
-                      <div className="w-8 h-8 rounded-full border border-cyan-400/50 flex items-center justify-center group-hover:bg-cyan-400/20 transition-colors duration-300">
-                        <svg
-                          className="w-4 h-4 text-cyan-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M7 17L17 7M17 7H7M17 7V17"
-                          />
-                        </svg>
+                    </div>
+
+                    {/* Project Info */}
+                    <div className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-300 mb-3 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                        {project.subtitle}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs sm:text-sm text-gray-400">
+                          {project.year}
+                        </span>
+                        <div className="w-8 h-8 rounded-full border border-cyan-400/50 flex items-center justify-center group-hover:bg-cyan-400/20 transition-colors duration-300">
+                          <svg
+                            className="w-4 h-4 text-cyan-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            {project.link ? (
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            ) : (
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M7 17L17 7M17 7H7M17 7V17"
+                              />
+                            )}
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
 
+                  {/* Background Image */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/70"></div>
+                    {/* Hover Glow Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-cyan-400/10 via-transparent to-transparent"></div>
+                  </div>
+
                   {/* Hover Border Effect */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-400/30 transition-colors duration-300 rounded-lg"></div>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
