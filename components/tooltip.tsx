@@ -4,7 +4,7 @@ const SocialTooltip = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/praveens649",
       hoverColor: "hover:text-[#333]",
       icon: (
         <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
@@ -14,7 +14,7 @@ const SocialTooltip = () => {
     },
     {
       name: "Email",
-      url: "mailto:your.email@example.com",
+      url: "https://mail.google.com/mail/?view=cm&fs=1&to=praveenv649@gmail.com",
       hoverColor: "hover:text-[#EA4335]",
       icon: (
         <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
@@ -24,7 +24,7 @@ const SocialTooltip = () => {
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/",
+      url: "https://www.instagram.com/praveens_649/?hl=en",
       hoverColor: "hover:text-[#E4405F]",
       icon: (
         <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
@@ -34,7 +34,7 @@ const SocialTooltip = () => {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/",
+      url: "https://www.linkedin.com/in/praveen-s-bb41b8278/",
       hoverColor: "hover:text-[#0077b5]",
       icon: (
         <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
@@ -44,7 +44,7 @@ const SocialTooltip = () => {
     },
     {
       name: "Discord",
-      url: "https://discord.com/",
+      url: "https://discord.com/users/xitchxx",
       hoverColor: "hover:text-[#5865F2]",
       icon: (
         <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
@@ -52,7 +52,16 @@ const SocialTooltip = () => {
         </svg>
       ),
     },
-
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/@praveenofficial2047", 
+      hoverColor: "hover:text-[#FF0000]", 
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-7 h-7 fill-current">
+          <path d="M91.7,29.5c-1.1-4.1-4.3-7.3-8.4-8.4C76.2,19,50,19,50,19s-26.2,0-33.3,2.1 c-4.1,1.1-7.3,4.3-8.4,8.4C6.2,36.6,6.2,50,6.2,50s0,13.4,2.1,20.5c1.1,4.1,4.3,7.3,8.4,8.4C23.8,81,50,81,50,81s26.2,0,33.3-2.1 c4.1-1.1,7.3-4.3,8.4-8.4c2.1-7.1,2.1-20.5,2.1-20.5S93.8,36.6,91.7,29.5z M41.7,64.6V35.4L63.3,50L41.7,64.6z" />
+        </svg>
+      ),
+    },
   ];
 
   return (
