@@ -2,6 +2,7 @@
 
 import AnimatedButton from "@/components/ui/animatedButton";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation"; // Add this import at the top
 import { useState } from "react";
@@ -64,7 +65,8 @@ const projects = [
 
 export default function PortfolioGrid() {
   const router = useRouter();
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  // Remove hoveredProject since it's not being used
+  const [, setHoveredProject] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -82,8 +84,8 @@ export default function PortfolioGrid() {
             <span className="text-gray-400">WORKS</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
-            Design is more than visuals — it's the story your brand tells.
-            Explore my selected works.
+            Design is more than visuals &mdash; it&apos;s the story your brand
+            tells. Explore my selected works.
           </p>
         </div>
       </section>
@@ -164,10 +166,13 @@ export default function PortfolioGrid() {
 
                   {/* Background Image */}
                   <div className="absolute inset-0 overflow-hidden">
-                    <img
-                      src={project.image || "/placeholder.svg"}
+                    <Image
+                      src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      width={800}
+                      height={600}
+                      className="object-cover w-full h-full"
+                      priority={index === 0}
                     />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/70"></div>
