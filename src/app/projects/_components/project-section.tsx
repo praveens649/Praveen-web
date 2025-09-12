@@ -1,7 +1,9 @@
 "use client";
 
+import AnimatedButton from "@/components/ui/animatedButton";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Add this import at the top
 import { useState } from "react";
 
 const projects = [
@@ -61,10 +63,16 @@ const projects = [
 ];
 
 export default function PortfolioGrid() {
+  const router = useRouter();
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Update AnimatedButton with navigation */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <AnimatedButton onClick={() => router.push("/")} text="Home" />
+      </div>
+
       {/* Update header section padding and text sizes */}
       <section className="pt-16 md:pt-22 pb-12 md:pb-20 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
