@@ -2,7 +2,6 @@
 
 > A modern, responsive portfolio showcasing my journey as a developer.
 
-![Portfolio Preview](public/developer.png)
 
 ## ⚡ Tech Stack
 
