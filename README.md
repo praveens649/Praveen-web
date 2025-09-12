@@ -62,16 +62,6 @@ prav-web/
 └── styles/
 ```
 
-## 🔗 Links
 
-- [Live Demo](https://your-portfolio-url.com)
-- [GitHub](https://github.com/praveens649)
-- [LinkedIn](https://www.linkedin.com/in/praveen-s-bb41b8278/)
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 <p align="center">Made with ❤️ by Praveen</p>
