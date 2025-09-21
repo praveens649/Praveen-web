@@ -14,6 +14,7 @@ const projects = [
     subtitle:
       "A sport and court lending platform featuring location-based filtering, one-time purchases, and in-app chat functionality.",
     category: "Web Development",
+    status: "Under Development",
     year: "2026",
     image: "/sportify.jpg",
     span: "col-span-2",
@@ -24,6 +25,7 @@ const projects = [
     subtitle:
       "E-commerce platform for digital game sales with user reviews and recommendations",
     category: "Web Development",
+    status: "Shipped",
     year: "2023",
     image: "/gamestore.png",
     span: "col-span-1",
@@ -35,6 +37,7 @@ const projects = [
     subtitle:
       "Task management app with a matrix-style interface for prioritizing and organizing tasks",
     category: "Web Development",
+    status: "Shipped",
     year: "2024",
     image: "/todomatrix.png",
     span: "col-span-1",
@@ -46,6 +49,7 @@ const projects = [
     subtitle:
       "A powerful web application that provides AI-powered resume analysis and feedback. Get detailed insights on how to optimize your resume for better ATS (Applicant Tracking System) performance and human readability.",
     category: "Web + AI Development",
+    status: "Shipped",
     year: "2025",
     image: "/AiResumer.png",
     span: "col-span-2",
@@ -53,10 +57,23 @@ const projects = [
   },
   {
     id: 5,
+    title: "Blogspace",
+    subtitle:
+      "The Blogspace is a E-commerce blog website is a full-stack web application built with Next.js, Supabase, and TanStack Query that enables users to create, manage, and interact with blogs in a secure and collaborative environment.",
+    category: "Web + CMS Development",
+    status: "Shipped",
+    year: "2025",
+    image: "/blog.png",
+    span: "col-span-3",
+    link: "https://blogs-gamma-bay.vercel.app",
+  },
+  {
+    id: 6,
     title: "Coming Soon",
     subtitle:
       "Stay tuned for an exciting new project that will be revealed soon!",
     category: "Stay Tuned",
+    status: "Coming Soon",
     year: "Yet to Reveal",
     image: "/comingsoon.avif",
     span: "col-span-3",
@@ -66,7 +83,7 @@ const projects = [
 export default function PortfolioGrid() {
   const router = useRouter();
   // Remove hoveredProject since it's not being used
-  const [, setHoveredProject] = useState<number | null>(null);
+  const [,setHoveredProject] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-black text-white relative">
@@ -118,9 +135,12 @@ export default function PortfolioGrid() {
                   {/* Update content padding and text sizes */}
                   <div className="relative z-10 p-4 sm:p-6 md:p-8 h-full flex flex-col justify-end">
                     {/* Category Badge */}
-                    <div className="mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
+                    <div className="flex items-center justify-between mb-3 md:mb-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
                       <span className="inline-block px-2 md:px-3 py-1 text-xs font-medium bg-cyan-400/20 text-cyan-400 rounded-full border border-cyan-400/30">
                         {project.category}
+                      </span>
+                      <span className="inline-block px-2 md:px-3 py-1 text-xs font-medium bg-cyan-400/20 text-cyan-400 rounded-full border border-cyan-400/30">
+                        {project.status}
                       </span>
                     </div>
 
